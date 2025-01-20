@@ -1,19 +1,18 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:lts'
-        }
-    }
+    agent none
     tools {
         jfrog 'jfrog-cli'
     }
     stages {
         stage('Compile application') {
-        agent any
+            agent {
+                docker {
+                    label 'node-build'
+                }
+            }
             steps {
-                sh 'npm install'
+                    sh 'npm install'
             }
         }
-
     }
 }
