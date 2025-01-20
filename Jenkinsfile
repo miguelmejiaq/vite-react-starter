@@ -1,12 +1,19 @@
 pipeline {
     agent {
-        docker { image 'node:22.13.0-alpine3.21' }
+        docker {
+            image: 'node:lts'
+        }
+    }
+    tools {
+        jfrog 'jfrog-cli'
     }
     stages {
-        stage('Build') {
+        stage('Compile application') {
+        agent any
             steps {
                 sh 'npm install'
             }
         }
+
     }
 }
