@@ -6,9 +6,7 @@ pipeline {
     stages {
         stage('Compile application') {
             agent {
-                docker {
-                    label 'node-build'
-                }
+                label 'node-build'
             }
             steps {
                     sh 'npm install'
