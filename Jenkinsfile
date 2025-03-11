@@ -9,8 +9,6 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'npm run build'
-                // List the contents of the dist directory
-                sh 'ls -la dist'
             }
         }
         stage('Publish Artifact') {
