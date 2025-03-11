@@ -20,7 +20,6 @@ pipeline {
                         transfers: [sshTransfer(
                             sourceFiles: 'dist/**',
                             remoteDirectory: '/var/www/html/',
-                            makeEmptyDirs: true,
                             cleanRemote: true,
                             verbose: true
                         )],
