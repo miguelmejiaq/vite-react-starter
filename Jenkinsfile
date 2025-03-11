@@ -21,7 +21,7 @@ pipeline {
                             sourceFiles: 'dist/**',
                             remoteDirectory: 'dist/',
                             verbose: true,
-                            execCommand: 'sudo mv -r dist/* /var/www/html/ && rm -rf dist'
+                            execCommand: 'sudo cp dist/* /var/www/html/ && rm -rf dist'
                         )],
                         usePromotionTimestamp: false,
                         useWorkspaceInPromotion: false,
