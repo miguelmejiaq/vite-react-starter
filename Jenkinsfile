@@ -21,7 +21,8 @@ pipeline {
                             sourceFiles: 'dist/**',
                             remoteDirectory: '/var/www/html',
                             makeEmptyDirs: true,
-                            cleanRemote: true
+                            cleanRemote: true,
+                            verbose: true
                         )],
                         usePromotionTimestamp: false,
                         useWorkspaceInPromotion: false,
