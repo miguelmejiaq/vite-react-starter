@@ -16,7 +16,7 @@ pipeline {
                 script {
                     // Define the artifact and destination
                     def artifactPath = 'dist/**/*'  // Adjust path to your artifact
-                    def remoteDir = '/var/www/html/'  // Remote directory on VM
+                    def remoteDir = '/var/www/html'  // Remote directory on VM
 
                     // Transfer the artifact to the VM using SCP
                     sshPublisher(publishers: [sshPublisherDesc(
@@ -25,9 +25,11 @@ pipeline {
                             sourceFiles: artifactPath,
                             remoteDirectory: remoteDir,
                             makeEmptyDirs: true,
-                            cleanRemote: true,
-                            execCommand: 'sudo systemctl restart apache2'
-                        )]
+                            cleanRemote: true
+                        )],
+                        usePromotionTimestamp: false,
+                        useWorkspaceInPromotion: false,
+                        verbose: true
                     )])
                 }
             }
