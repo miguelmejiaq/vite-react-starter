@@ -19,9 +19,8 @@ pipeline {
                         configName: 'apache-server',  // Refer to the SSH configuration name you set earlier
                         transfers: [sshTransfer(
                             sourceFiles: 'dist/**',
-                            remoteDirectory: 'dist/',
                             verbose: true,
-                            execCommand: 'sudo cp dist/* /var/www/html/ && rm -rf dist'
+                            execCommand: 'sudo systemctl restart apache2'
                         )],
                         usePromotionTimestamp: false,
                         useWorkspaceInPromotion: false,
