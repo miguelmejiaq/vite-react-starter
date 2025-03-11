@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     // Define the artifact and destination
-                    def artifactPath = 'dist/'  // Adjust path to your artifact
+                    def artifactPath = 'dist/*'  // Adjust path to your artifact
                     def remoteDir = '/var/www/html/'  // Remote directory on VM
 
                     // Transfer the artifact to the VM using SCP
@@ -24,7 +24,8 @@ pipeline {
                         transfers: [sshTransfer(
                             sourceFiles: artifactPath,
                             remoteDirectory: remoteDir,
-                            removeRemoteFiles: true,
+                            makeEmptyDirs: true,
+                            cleanRemote: true
                         )]
                     )])
                 }
