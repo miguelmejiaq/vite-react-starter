@@ -19,9 +19,9 @@ pipeline {
                         configName: 'apache-server',  // Refer to the SSH configuration name you set earlier
                         transfers: [sshTransfer(
                             sourceFiles: 'dist/**',
-                            remoteDirectory: '/var/www/html/',
-                            cleanRemote: true,
-                            verbose: true
+                            remoteDirectory: 'dist/',
+                            verbose: true,
+                            execCommand: 'sudo mv -r dist/* /var/www/html/ && rm -rf dist'
                         )],
                         usePromotionTimestamp: false,
                         useWorkspaceInPromotion: false,
