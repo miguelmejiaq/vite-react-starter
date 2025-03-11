@@ -1,12 +1,14 @@
 pipeline {
-    agent none
+    agent any
     stages {
-        stage('Compile application') {
-            agent {
-                label 'node-build'
-            }
+        stage('Install prerequisites') {
             steps {
                     sh 'npm install'
+            }
+        }
+        stage('Build') {
+            steps {
+                    sh 'npm build'
             }
         }
     }
