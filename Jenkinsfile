@@ -16,7 +16,7 @@ pipeline {
                sshPublisher(publishers: [sshPublisherDesc(
                         configName: 'apache-server',  // Refer to the SSH configuration name you set earlier
                         transfers: [sshTransfer(
-                            sourceFiles: 'dist/**/*',
+                            sourceFiles: 'dist/**',
                             remoteDirectory: '/var/www/html',
                             makeEmptyDirs: true,
                             cleanRemote: true
