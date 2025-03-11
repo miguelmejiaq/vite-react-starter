@@ -20,7 +20,7 @@ pipeline {
                         transfers: [sshTransfer(
                             sourceFiles: 'dist/**',
                             remoteDirectory: '/var/www/html',
-                            removePrefix: true,
+                            removePrefix: "dist",
                             verbose: true,
                             execCommand: 'sudo systemctl restart apache2'
                         )],
