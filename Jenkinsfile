@@ -18,8 +18,7 @@ pipeline {
                sshPublisher(publishers: [sshPublisherDesc(
                         configName: 'apache-server',  // Refer to the SSH configuration name you set earlier
                         transfers: [sshTransfer(
-                            sourceFiles: 'dist/**',
-                            remoteDirectory: '/var/www/html',
+                            sourceFiles: 'dist/**/*',
                             removeRemoteFiles: true,
                             verbose: true,
                             execCommand: 'sudo systemctl restart apache2'
